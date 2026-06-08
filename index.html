@@ -22,6 +22,7 @@
         font-size: 18px;
         font-family: 'Pixelify Sans', sans-serif;
         color: #555;
+        line-height: 1.5; /* Added for better readability of the longer message */
       }
     </style>
   </head>
@@ -36,14 +37,16 @@
     <script>
       // Read URL params
       const params = new URLSearchParams(window.location.search);
-      const name = params.get("name") || "Friend";
+      const name = params.get("name") || "Vasvi"; // Updated fallback default to Vasvi
       let candleCount = parseInt(params.get("candles")) || 4;
       candleCount = Math.min(Math.max(candleCount, 1), 30);
 
       const birthdayText = document.getElementById("birthdayText");
+      
+      // === UPDATED TEXT SECTION ===
       birthdayText.innerHTML = `
         <div id="mainTitle">Happy Birthday, ${name}!</div>
-        <div id="subTitle">Make a wish and blow candles.</div>
+        <div id="subTitle">Vasvi you are definitely on the list of one of the top things that happened this year with me, the way you are the way you act the way you talk mujhe nhi lagta i am ever getting over it toh keep being yourself and dont tire yourself out with all this kaam you have taken upon yourself. Happy Birthday firse and congratulations aur buddhe hone par :)</div>
       `;
 
       const cake = document.getElementById("cake");
@@ -66,8 +69,8 @@
 
         for (let i = 0; i < count; i++) {
           const candle = document.createElement("div");
-          candle.classList.add("candle");
           const colorClass = colors[Math.floor(Math.random() * colors.length)];
+          candle.classList.add("candle");
           candle.classList.add(colorClass);
 
           const row = Math.floor(i / candlesPerRow);
